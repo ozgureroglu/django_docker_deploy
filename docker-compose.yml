@@ -1,0 +1,37 @@
+version: '3'
+
+services:
+  db:
+    image: postgres
+
+  django:
+    build: .
+    image: wbdap_django:latest
+    # container_name: wbdap_django_1
+    # command: python3 manage.py runserver 0.0.0.0:8080
+    volumes:
+      - .:/code
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+
+
+  mailserver:
+    image: fengzhou/james-server:latest
+    ports:
+      - "25:25"
+      - "110:110"
+      - "143:143"
+      - "465:465"
+      - "993:993"
+      - "995:995"
+
+  gunicorn:
+    build:
+      context: ./deployment/gunicorn
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./wbdap:/app
+    command: ["gunicorn","app.wsgi"]
