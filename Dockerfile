@@ -19,7 +19,7 @@ RUN apt-get install -y python python-pip
 # Create application subdirectories for media, static and logs of the project
 WORKDIR $CONT_SRV
 RUN mkdir media static logs
-VOLUME ["$CONT_SRV/media/", "$CONT_SRV/logs/"]
+VOLUME ["$CONT_SRV/media/", "$CONT_SRV/logs/", "$CONT_SRV/static/"]
 
 # Copy application source code
 COPY $DJANGO_PROJ $CONT_PRJ_HOME

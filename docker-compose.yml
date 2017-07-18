@@ -10,7 +10,7 @@ services:
     # container_name: wbdap_django_1
     # command: python3 manage.py runserver 0.0.0.0:8080
     volumes:
-      - .:/code
+      - .:/srv/static
     ports:
       - "8000:8000"
     depends_on:
