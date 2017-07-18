@@ -25,7 +25,7 @@ SECRET_KEY = '75q@ckql7w9zh%y&g=+z0pd#91566wg=(9%($-8ri1i_s0k3ot'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["django","gunicorn.local"]
 
 
 # Application definition
