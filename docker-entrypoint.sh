@@ -9,7 +9,7 @@ tail -n 0 -f /srv/logs/*.log &
 
 # Start Gunicorn processes
 echo Starting Gunicorn.
-exec gunicorn wbdap.wsgi:application \
+exec gunicorn testprj.wsgi:application \
     --name wbdap \
     --bind 0.0.0.0:8000 \
     --workers 3 \

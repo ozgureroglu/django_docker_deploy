@@ -6,11 +6,11 @@ MAINTAINER Ozgur Eroglu
 
 # Set env variables used in this Dockerfile
 # Local directory with project source
-ENV DJANGO_PROJ=./WBDAP
+ENV DJANGO_PROJ=./testprj
 # Directory in container for all project files
 ENV CONT_SRV=/srv
 # Directory in container for project source files
-ENV CONT_PRJ_HOME=/srv/WBDAP
+ENV CONT_PRJ_HOME=/srv/testprj
 
 # Update the default application repository sources list
 RUN apt-get update && apt-get -y upgrade
