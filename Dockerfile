@@ -7,8 +7,7 @@ MAINTAINER Ozgur Eroglu
 # Set env variables used in this Dockerfile
 # Local directory with project source
 ENV DJANGO_PROJ ./proj_src/testprj
-# Directory in container for all project files
-ENV CONT_SRV /srv
+
 # Directory in container for project source files
 ENV CONT_PRJ_HOME /srv/testprj
 
@@ -25,7 +24,7 @@ RUN apt-get install -y python3-venv
 
 
 # Create application subdirectories for media, static and logs of the project
-WORKDIR $CONT_SRV
+WORKDIR /srv/
 RUN mkdir media static logs
 
 # Copy application source code
