@@ -1,5 +1,6 @@
 #!/bin/bash
-python manage.py migrate                  # Apply database migrations
+. /srv/venv/wbdap/bin/activate
+/srv/venv/wbdap/bin/python3 manage.py migrate                  # Apply database migrations
 # python manage.py collectstatic --noinput  # Collect static files
 
 # Prepare log files and start outputting logs to stdout
@@ -9,7 +10,8 @@ tail -n 0 -f /srv/logs/*.log &
 
 # Start Gunicorn processes
 echo Starting Gunicorn.
-exec gunicorn testprj.wsgi:application \
+ls /srv/venv
+exec /srv/venv/wbdap/bin/gunicorn testprj.wsgi:application \
     --name testprj \
     --bind 0.0.0.0:8000 \
     --workers 3 \

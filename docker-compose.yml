@@ -24,8 +24,13 @@ services:
     image: demo_django_app:latest
     container_name: demo_django_app
     # command: python3 manage.py runserver 0.0.0.0:8080
-    volumes:
-      - .:/srv/static
+    # volumes:
+    #   - ../deploy/static:/srv/static
+    #   - ../deploy/media:/srv/media
+    #   - ../deploy/logs:/srv/logs
+    #   - ../deploy/venv:/srv/venv
+
+
     # ports:
     #   - "8000:8000"
     expose:
